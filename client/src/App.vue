@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { eventBus } from './main.js';
 import BookingService from './services/BookingService.js';
 import BookingsGrid from './components/BookingsGrid.vue';
 import BookingForm from './components/BookingsForm.vue';
@@ -26,6 +27,12 @@ export default {
   },
   mounted() {
     this.showBookings()
+
+    eventBus.$on('submit-booking', payload => {
+      BookingService.postBooking(payload)
+      .then(booking => this.bookings.push(booking));
+    });
+
   },
   methods: {
     showBookings() {

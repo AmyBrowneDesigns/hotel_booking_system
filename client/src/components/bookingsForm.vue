@@ -19,6 +19,9 @@
 </template>
 
 <script>
+
+import { eventBus } from '../main.js';
+
 export default {
  data(){
     return {
@@ -35,7 +38,11 @@ export default {
              email: this.email,
              checkedin: this.checkedin
          };
-         console.log(payload);
+         
+         eventBus.$emit('submit-booking', payload);
+         this.name = '';
+         this.email = '';
+         this.checkedin = false;
 
 
      }
