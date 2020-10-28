@@ -1,10 +1,8 @@
 <template>
 <main>
   <h1>Hotel Code</h1>
+  <booking-form></booking-form>
   <bookings-grid v-if="bookings" :bookings="bookings"></bookings-grid>
-  <!-- <ul>
-    <li v-for="(booking, index) in bookings" :key="index">{{ booking.name}}</li>
-  </ul> -->
 </main>
 
 
@@ -13,11 +11,13 @@
 <script>
 import BookingService from './services/BookingService.js';
 import BookingsGrid from './components/BookingsGrid.vue';
+import BookingForm from './components/BookingsForm.vue';
 
 export default {
   name: 'App',
   components: {
-    "bookings-grid": BookingsGrid
+    "bookings-grid": BookingsGrid,
+    "booking-form": BookingForm
   },
   data () {
     return {

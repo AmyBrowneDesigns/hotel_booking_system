@@ -17,6 +17,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
 </style>
